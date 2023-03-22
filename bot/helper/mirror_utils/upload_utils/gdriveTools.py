@@ -129,10 +129,10 @@ class GoogleDriveHelper:
            retry=retry_if_exception_type(Exception))
     def __set_permission(self, file_id):
         permissions = {
-            'role': 'reader',
-            'type': 'anyone',
+            'role': 'viewer',
+            'type': 'restricted',
             'value': None,
-            'withLink': True
+            'withLink': False
         }
         return self.__service.permissions().create(fileId=file_id, body=permissions, supportsAllDrives=True).execute()
 
@@ -267,7 +267,7 @@ class GoogleDriveHelper:
     def __create_directory(self, directory_name, dest_id):
         file_metadata = {
             "name": directory_name,
-            "description": "Uploaded by Mirror-leech-telegram-bot",
+            "description": "STAZCHERRY",
             "mimeType": self.__G_DRIVE_DIR_MIME_TYPE
         }
         if dest_id is not None:
@@ -285,7 +285,7 @@ class GoogleDriveHelper:
         # File body description
         file_metadata = {
             'name': file_name,
-            'description': 'Uploaded by Mirror-leech-telegram-bot',
+            'description': 'STAZCHERRY',
             'mimeType': mime_type,
         }
         if dest_id is not None:
